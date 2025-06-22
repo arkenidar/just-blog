@@ -2,7 +2,6 @@ package com.example.justblog.controller;
 
 import com.example.justblog.model.BlogPost;
 import com.example.justblog.service.BlogPostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +11,6 @@ public class WebController {
     
     private final BlogPostService blogPostService;
     
-    @Autowired
     public WebController(BlogPostService blogPostService) {
         this.blogPostService = blogPostService;
     }

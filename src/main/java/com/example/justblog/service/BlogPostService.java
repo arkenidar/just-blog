@@ -2,7 +2,6 @@ package com.example.justblog.service;
 
 import com.example.justblog.model.BlogPost;
 import com.example.justblog.repository.BlogPostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,6 @@ public class BlogPostService {
     
     private final BlogPostRepository blogPostRepository;
     
-    @Autowired
     public BlogPostService(BlogPostRepository blogPostRepository) {
         this.blogPostRepository = blogPostRepository;
     }

@@ -2,7 +2,6 @@ package com.example.justblog.controller;
 
 import com.example.justblog.model.BlogPost;
 import com.example.justblog.service.BlogPostService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,6 @@ public class BlogPostController {
     
     private final BlogPostService blogPostService;
     
-    @Autowired
     public BlogPostController(BlogPostService blogPostService) {
         this.blogPostService = blogPostService;
     }

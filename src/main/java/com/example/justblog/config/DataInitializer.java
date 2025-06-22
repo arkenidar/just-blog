@@ -2,7 +2,6 @@ package com.example.justblog.config;
 
 import com.example.justblog.model.BlogPost;
 import com.example.justblog.repository.BlogPostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +10,6 @@ public class DataInitializer implements CommandLineRunner {
     
     private final BlogPostRepository blogPostRepository;
     
-    @Autowired
     public DataInitializer(BlogPostRepository blogPostRepository) {
         this.blogPostRepository = blogPostRepository;
     }
