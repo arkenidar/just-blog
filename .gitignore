@@ -1,3 +1,6 @@
 
 # Ignore build directories
 /target
+
+# Ignored Environment variables configuration file
+.env

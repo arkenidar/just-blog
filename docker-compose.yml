@@ -6,12 +6,12 @@ services:
     container_name: justblog-mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: yourpassword
-      MYSQL_DATABASE: justblog
-      MYSQL_USER: justblog_user
-      MYSQL_PASSWORD: justblog_password
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-yourpassword}
+      MYSQL_DATABASE: ${DB_NAME:-justblog}
+      MYSQL_USER: ${DB_USERNAME:-justblog_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-justblog_password}
     ports:
-      - "3306:3306"
+      - "${DB_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./database/mysql-setup.sql:/docker-entrypoint-initdb.d/init.sql
