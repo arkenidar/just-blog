@@ -45,8 +45,7 @@
                                 th:text="${#temporals.format(post.updatedAt, 'MMM dd, yyyy HH:mm')}"></span>)
                         </span>
                     </p>
-                    <div class="content"
-                        th:utext="${#strings.replace(post.content, T(java.lang.System).lineSeparator(), '&lt;br&gt;')}">
+                    <div class="content" style="white-space: pre-wrap;" th:text="${post.content}">
                     </div>
 
                     <div class="mt-4">
