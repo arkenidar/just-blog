@@ -20,42 +20,51 @@ public class DataInitializer implements CommandLineRunner {
         if (blogPostRepository.count() == 0) {
             BlogPost post1 = new BlogPost(
                 "Welcome to Just Blog!",
-                "This is the first post on our new blog application built with Spring Boot. " +
-                "Here you can create, read, update, and delete blog posts with ease.\n\n" +
-                "Features include:\n" +
-                "- Clean and modern UI with Bootstrap\n" +
-                "- REST API endpoints\n" +
-                "- H2 in-memory database\n" +
-                "- Thymeleaf templating\n" +
-                "- Responsive design\n\n" +
-                "Feel free to create your own posts and explore the application!",
+                """
+                This is the first post on our new blog application built with Spring Boot. \
+                Here you can create, read, update, and delete blog posts with ease.
+                
+                Features include:
+                - Clean and modern UI with Bootstrap
+                - REST API endpoints
+                - H2 in-memory database
+                - Thymeleaf templating
+                - Responsive design
+                
+                Feel free to create your own posts and explore the application!""",
                 "Admin"
             );
             
             BlogPost post2 = new BlogPost(
                 "Getting Started with Spring Boot",
-                "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications. " +
-                "In this blog application, we're using several Spring Boot starters:\n\n" +
-                "- spring-boot-starter-web: For web applications\n" +
-                "- spring-boot-starter-data-jpa: For database access\n" +
-                "- spring-boot-starter-thymeleaf: For templating\n" +
-                "- spring-boot-devtools: For development convenience\n\n" +
-                "The application follows the MVC pattern with proper separation of concerns.",
+                """
+                Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications. \
+                In this blog application, we're using several Spring Boot starters:
+                
+                - spring-boot-starter-web: For web applications
+                - spring-boot-starter-data-jpa: For database access
+                - spring-boot-starter-thymeleaf: For templating
+                - spring-boot-devtools: For development convenience
+                
+                The application follows the MVC pattern with proper separation of concerns.""",
                 "Spring Developer"
             );
             
             BlogPost post3 = new BlogPost(
                 "RESTful API Design",
-                "This blog application exposes a RESTful API that you can use to interact with blog posts programmatically.\n\n" +
-                "Available endpoints:\n" +
-                "- GET /api/posts - Get all posts\n" +
-                "- GET /api/posts/{id} - Get a specific post\n" +
-                "- POST /api/posts - Create a new post\n" +
-                "- PUT /api/posts/{id} - Update a post\n" +
-                "- DELETE /api/posts/{id} - Delete a post\n" +
-                "- GET /api/posts/search?title=query - Search posts by title\n" +
-                "- GET /api/posts/author/{author} - Get posts by author\n\n" +
-                "All endpoints return JSON responses and follow REST conventions.",
+                """
+                This blog application exposes a RESTful API that you can use to interact with blog posts programmatically.
+                
+                Available endpoints:
+                - GET /api/posts - Get all posts
+                - GET /api/posts/{id} - Get a specific post
+                - POST /api/posts - Create a new post
+                - PUT /api/posts/{id} - Update a post
+                - DELETE /api/posts/{id} - Delete a post
+                - GET /api/posts/search?title=query - Search posts by title
+                - GET /api/posts/author/{author} - Get posts by author
+                
+                All endpoints return JSON responses and follow REST conventions.""",
                 "API Designer"
             );
             
