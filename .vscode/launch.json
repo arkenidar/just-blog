@@ -1,0 +1,62 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug Spring Boot App",
+            "request": "launch",
+            "mainClass": "com.example.justblog.JustBlogApplication",
+            "projectName": "just-blog",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=dev"
+            ],
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "dev"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "java",
+            "name": "Debug Spring Boot App (MySQL)",
+            "request": "launch",
+            "mainClass": "com.example.justblog.JustBlogApplication",
+            "projectName": "just-blog",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=prod"
+            ],
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "java",
+            "name": "Run Spring Boot Tests",
+            "request": "launch",
+            "mainClass": "",
+            "projectName": "just-blog",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=test"
+            ],
+            "preLaunchTask": "test",
+            "console": "internalConsole"
+        },
+        {
+            "type": "java",
+            "name": "Attach to Remote Spring Boot",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 5005,
+            "timeout": 30000
+        }
+    ]
+}

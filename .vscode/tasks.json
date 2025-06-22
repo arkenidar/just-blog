@@ -2,17 +2,166 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Spring Boot: Run",
+			"label": "Spring Boot: Run (Dev Profile)",
 			"type": "shell",
 			"command": "mvn",
 			"args": [
-				"spring-boot:run"
+				"spring-boot:run",
+				"-Dspring-boot.run.profiles=dev"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": {
+				"owner": "java",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"severity": 3,
+					"message": 4
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^.*Scanning for projects.*$",
+					"endsPattern": "^.*Started JustBlogApplication.*$"
+				}
+			},
+			"options": {
+				"env": {
+					"SPRING_PROFILES_ACTIVE": "dev"
+				}
+			}
+		},
+		{
+			"label": "Spring Boot: Run (Production Profile)",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"spring-boot:run",
+				"-Dspring-boot.run.profiles=prod"
 			],
 			"group": "build",
 			"isBackground": true,
-			"problemMatcher": [
-				"$tsc"
-			]
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": {
+				"owner": "java",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"severity": 3,
+					"message": 4
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^.*Scanning for projects.*$",
+					"endsPattern": "^.*Started JustBlogApplication.*$"
+				}
+			},
+			"options": {
+				"env": {
+					"SPRING_PROFILES_ACTIVE": "prod"
+				}
+			}
+		},
+		{
+			"label": "Maven: Clean",
+			"type": "shell",
+			"command": "mvn",
+			"args": ["clean"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Maven: Compile",
+			"type": "shell",
+			"command": "mvn",
+			"args": ["compile"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Maven: Test",
+			"type": "shell",
+			"command": "mvn",
+			"args": ["test"],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Maven: Package",
+			"type": "shell",
+			"command": "mvn",
+			"args": ["package"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Docker: Start MySQL",
+			"type": "shell",
+			"command": "docker-compose",
+			"args": ["up", "-d"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
+		},
+		{
+			"label": "Docker: Stop MySQL",
+			"type": "shell",
+			"command": "docker-compose",
+			"args": ["down"],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared"
+			}
 		}
 	]
 }

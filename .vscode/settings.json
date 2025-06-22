@@ -1,0 +1,50 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.debug.settings.enableRunDebugCodeLens": true,
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.debug.settings.showQualifiedNames": false,
+    "java.debug.settings.showLogicalStructure": true,
+    "java.debug.settings.showToString": true,
+    "java.debug.settings.maxStringLength": 0,
+    "java.debug.settings.numericPrecision": 0,
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.debug.settings.enableHotCodeReplace": true,
+    "java.debug.settings.stepping.skipClasses": true,
+    "java.debug.settings.stepping.skipSynthetics": true,
+    "java.debug.settings.stepping.skipStaticInitializers": true,
+    "java.debug.settings.stepping.skipConstructors": true,
+    "java.debug.logLevel": "warn",
+    "java.test.defaultConfig": "",
+    "java.test.config": {
+        "name": "myConfiguration",
+        "workingDirectory": "${workspaceFolder}",
+        "args": [],
+        "vmArgs": [
+            "-Dspring.profiles.active=test"
+        ],
+        "env": {
+            "SPRING_PROFILES_ACTIVE": "test"
+        }
+    },
+    "spring-boot.ls.problem.application-properties.enabled": true,
+    "spring-boot.ls.problem.application-yaml.enabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/target": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "files.watcherExclude": {
+        "**/target/**": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    }
+}
