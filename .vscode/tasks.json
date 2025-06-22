@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Spring Boot: Run (Dev Profile)",
+			"label": "Spring Boot: Run (MySQL Dev - Persistent)",
 			"type": "shell",
 			"command": "mvn",
 			"args": [
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"label": "Spring Boot: Run (Production Profile)",
+			"label": "Spring Boot: Run (MySQL Prod)",
 			"type": "shell",
 			"command": "mvn",
 			"args": [
@@ -79,6 +79,45 @@
 			"options": {
 				"env": {
 					"SPRING_PROFILES_ACTIVE": "prod"
+				}
+			}
+		},
+		{
+			"label": "Spring Boot: Run (H2 Memory)",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"spring-boot:run",
+				"-Dspring-boot.run.profiles=h2"
+			],
+			"group": "build",
+			"isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": {
+				"owner": "java",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"severity": 3,
+					"message": 4
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^.*Scanning for projects.*$",
+					"endsPattern": "^.*Started JustBlogApplication.*$"
+				}
+			},
+			"options": {
+				"env": {
+					"SPRING_PROFILES_ACTIVE": "h2"
 				}
 			}
 		},

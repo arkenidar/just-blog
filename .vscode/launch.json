@@ -1,9 +1,7 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
+    "version": "0.2.0",    "configurations": [        {
             "type": "java",
-            "name": "Debug Spring Boot App",
+            "name": "Debug Spring Boot App (MySQL Dev - Persistent)",
             "request": "launch",
             "mainClass": "com.example.justblog.JustBlogApplication",
             "projectName": "just-blog",
@@ -21,7 +19,7 @@
         },
         {
             "type": "java",
-            "name": "Debug Spring Boot App (MySQL)",
+            "name": "Debug Spring Boot App (MySQL Prod)",
             "request": "launch",
             "mainClass": "com.example.justblog.JustBlogApplication",
             "projectName": "just-blog",
@@ -31,6 +29,40 @@
             ],
             "env": {
                 "SPRING_PROFILES_ACTIVE": "prod"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },        {
+            "type": "java",
+            "name": "Debug Spring Boot App (H2 Memory)",
+            "request": "launch",
+            "mainClass": "com.example.justblog.JustBlogApplication",
+            "projectName": "just-blog",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=h2"
+            ],
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "h2"
+            },
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "java",
+            "name": "Debug Spring Boot App (MySQL Dev - Fresh Data)",
+            "request": "launch",
+            "mainClass": "com.example.justblog.JustBlogApplication",
+            "projectName": "just-blog",
+            "args": [],
+            "vmArgs": [
+                "-Dspring.profiles.active=dev-fresh"
+            ],
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "dev-fresh"
             },
             "envFile": "${workspaceFolder}/.env",
             "console": "internalConsole",

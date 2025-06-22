@@ -33,16 +33,18 @@ Install these essential extensions:
 ### Method 1: Using Debug Configuration (Recommended)
 1. Press `F5` or go to Run & Debug view (`Ctrl+Shift+D`)
 2. Select one of these configurations:
-   - **"Debug Spring Boot App"** - Runs with H2 database (dev profile)
-   - **"Debug Spring Boot App (MySQL)"** - Runs with MySQL (prod profile)
+   - **"Debug Spring Boot App (MySQL Dev - Persistent)"** - MySQL with persistent data (development)
+   - **"Debug Spring Boot App (MySQL Prod)"** - MySQL with persistent data (production)
+   - **"Debug Spring Boot App (H2 Memory)"** - H2 in-memory database (quick testing)
 3. Click the green play button or press `F5`
 
 ### Method 2: Using Tasks
 1. Press `Ctrl+Shift+P` to open command palette
 2. Type "Tasks: Run Task"
 3. Select:
-   - **"Spring Boot: Run (Dev Profile)"** - H2 database
-   - **"Spring Boot: Run (Production Profile)"** - MySQL database
+   - **"Spring Boot: Run (MySQL Dev - Persistent)"** - MySQL development with persistent data
+   - **"Spring Boot: Run (MySQL Prod)"** - MySQL production mode
+   - **"Spring Boot: Run (H2 Memory)"** - H2 in-memory database
 
 ### Method 3: Using Spring Boot Dashboard
 1. Open the Spring Boot Dashboard (View > Open View > Spring Boot Dashboard)
@@ -71,16 +73,26 @@ Install these essential extensions:
 
 ## Database Profiles
 
-### Development Profile (H2)
+### Development Profile (MySQL)
+- Uses MySQL database with `update` DDL mode
+- Database schema is updated incrementally
+- **Data persists between application restarts**
+- Detailed logging enabled for debugging
+- Same database persistence as production but with development-friendly settings
+
+### Production Profile (MySQL)
+- Uses MySQL database with `update` DDL mode
+- Database schema is updated incrementally
+- Data persists between application restarts
+- Optimized for performance
+- Minimal logging
+
+### H2 Profile (In-Memory)
 - Uses in-memory H2 database
 - No external database required
 - Data is lost when application stops
 - H2 console available at: http://localhost:8080/h2-console
-
-### Production Profile (MySQL)
-- Requires MySQL database
-- Data persists between application restarts
-- Configure credentials in `.env` file
+- Perfect for quick testing and development without database setup
 
 ## Environment Configuration
 
@@ -152,7 +164,16 @@ The application includes Spring Boot DevTools for hot reload:
 
 When running:
 - **Application**: http://localhost:8080
-- **H2 Console** (dev profile): http://localhost:8080/h2-console
+- **H2 Console** (h2 profile only): http://localhost:8080/h2-console
   - URL: `jdbc:h2:mem:blogdb`
   - Username: `sa`
   - Password: (empty)
+
+## Profile Summary
+
+| Profile | Database | DDL Mode | Data Persistence | Use Case |
+|---------|----------|----------|------------------|----------|
+| `dev` | MySQL | update | ✅ Persistent | Development with data persistence |
+| `prod` | MySQL | update | ✅ Persistent | Production with persistent data |
+| `h2` | H2 Memory | create-drop | ❌ Lost on restart | Quick testing without database setup |
+| `test` | H2 Memory | create-drop | ❌ Lost on restart | Unit testing |
